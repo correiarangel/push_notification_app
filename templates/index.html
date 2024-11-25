@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap">
+</head>
+
+<body class="dracula-theme">
+    <!-- Incluir a Navbar -->
+    {% include 'navbar_component.html' %}
+
+    <!-- Cabeçalho com imagem -->
+    <header class="header">
+        <img src="{{ url_for('static', filename='images/heard.jpeg') }}" alt="Header Image" class="header-image">
+        <div class="header-text">
+            Welcome to R Notifications push notification system
+            <div class="btn-neader">
+                <button onclick="window.location.href='/form'"> Send Notification </button>
+                <button onclick="window.location.href='/messages'">All Messages Send</button>
+            </div>
+        </div>
+
+
+    </header>
+
+    <!-- Contêiner para os painéis -->
+    <div class="panels-container">
+        <!-- Painel de conteúdo principal -->
+        <div class="main-panel">
+            <h2>Principal Content</h2>
+            <p>
+                Taking Harvard’s CS50: Introduction to Computer Science course was an extremely privileged experience,
+                as well as being fun and exciting. The quality of the teaching and the teachers is truly exceptional.
+            </p>
+            <p>
+                Although Brazilian teachers are also brilliant, David Malan's teaching method stands out. His examples
+                and illustrations are extremely effective in helping students learn the content. I would like to express
+                my gratitude to the Estudar group, which manages and makes this platform available for the course in
+                Brazil.
+            </p>
+            <p>
+                I would also like to thank the professors and everyone involved in this incredible opportunity to enter
+                this
+                fascinating world of software development. The R Notifications system was developed as a final project
+                for the
+                course. If you are interested in the subject and want to explore a career as a developer, check out the
+                links
+                in the panel on the right for available courses.
+            </p>
+
+            <h3>A rant from the author :</h3>
+            <p>
+                No momento, estou enfrentando desafios financeiros e passando por dificuldades para retornar
+                ao mercado de trabalho. Se puder, gostaria muito de contar com sua ajuda. Por favor, compartilhe
+                este código ou indique uma oportunidade de trabalho para que eu, Marcos Rangel, possa voltar ao mercado
+                e continuar minha trajetória no mundo da tecnologia.
+            </p>
+
+            <h3>If you want to make a donation, you can contribute via PIX:</h3>
+
+            <p><strong>Key PIX:</strong> okcomputer.use.linus@gmail.com</p>
+            <p><strong>Bank:</strong> Itaú</p>
+            <p><strong>Beneficiary:</strong> Marcos Fabiano Correia Gangel</p>
+
+            <p>I thank you in advance for any kind of support.</p>
+
+            <h3>Pensador:</h3>
+            <p> To achieve the impossible, believe that it is possible!</p>
+        </div>
+
+        <!-- Coluna de links em um contêiner à direita -->
+        <div class="link-panel">
+            <div class="links-column">
+                <h3>Tools</h3>
+                <ul>
+                    <li><a href="https://status.onesignal.com/#" target="_blank">Status OneSignal</a></li>
+                </ul>
+
+                <h3>Useful Documents</h3>
+                <ul>
+                    <li><a href="https://flask.palletsprojects.com/" target="_blank">Docs Flask</a></li>
+                    <li><a href="https://documentation.onesignal.com/" target="_blank">OneSignal Documentation</a></li>
+                    <li><a href="https://documentation.onesignal.com/reference/rest-api-overview" target="_blank">REST
+                            API Reference Guide</a></li>
+
+                    <li><a href="https://documentation.onesignal.com/docs/flutter-sdk-setup"
+                            target="_blank">OneSignal/Flutter SDK
+                            Setup</a></li>
+                    <li><a href="https://documentation.onesignal.com/docs/android-sdk-setup"
+                            target="_blank">OneSignal/Android SDK
+                            Setup</a></li>
+                    <li><a href="https://documentation.onesignal.com/docs/ios-sdk-setup" target="_blank">OneSignal/iOS
+                            SDK
+                            Setup</a></li>
+
+                </ul>
+
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="https://www.estudarfora.org.br/cursos/cc50/?utm_source=google_ads&utm_medium=cpc&utm_campaign=cc-50&referral=google_ads-cpc-cc-50--&gad_source=1&gclid=Cj0KCQiA_qG5BhDTARIsAA0UHSJEtkFZhIx566SaIWcvJcoa7TBlxjFSjt4bfGffx86l57G--Ua2LkQaAncdEALw_wcB"
+                            target="_blank">CC50 HARVARD COMPUTER SCIENCE COURSE IN BRAZIL</a></li>
+                    <li><a href="https://pll.harvard.edu/course/cs50-introduction-computer-science"
+                            target="_blank">CS50: Introduction to Computer Science</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+{% include 'folder_component.html' %}
+
+</html>

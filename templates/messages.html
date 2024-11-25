@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Sends Push</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap">
+
+</head>
+
+<body class="dracula-theme">
+    {% include 'navbar_component.html' %}
+
+    <div class="container">
+        <div class="form-panel">
+            <h2>All Sent Messages</h2>
+
+            <!-- Formulário para `app_id` e `api_key` -->
+            <form id="push-form" onsubmit="fetchMessages(event)">
+
+                <label for="app_id">App ID:</label>
+                <input type="text" id="app_id" name="app_id" placeholder="Enter your App ID..." required>
+
+                <label for="api_key">API Key:</label>
+                <input type="text" id="api_key" name="api_key" placeholder="Enter your API Key..." required>
+
+                <div class="button-group">
+                    <!--button type="button" class="btn-green" onclick="fetchMessages()">Get All Messages</button-->
+                    <button type="submit" class="btn-green">Get All Messages</button>
+                    <button type="button" class="btn-orange" onclick="clearAll()">Clear All</button>
+
+                    <form action="/clear_session" method="POST" style="display: inline;">
+                        <button type="submit" class="btn-red">Clear Session Data</button>
+                    </form>
+                </div>
+              
+            </form>
+
+        </div>
+        
+
+
+        <h3>Console Logs</h3>
+        <div class="form-panel">
+            <div class="log-container">
+                <pre id="console-log">{{ log_output }}</pre>
+            </div>
+            <br />
+            <!--button type="button" class="btn-green" onclick="downloadLog()">Download File Logs</button-->
+            <button type="button" class="btn-green" onclick="window.location.href='/download_log'">Download File Logs</button>
+        </div>
+
+        <h3 id="list-header" style="display: none;">List Messages</h3>
+        <div id="messages-container" class="log-container">
+            <!-- Cards de mensagens serão adicionados aqui -->
+        </div>
+
+    </div>
+    <button onclick="window.location.href='/'" class="btn-dracul" style="position: fixed; bottom: 20px; right: 20px;">
+        Back
+    </button>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+{% include 'progress_dailog_component.html' %}
+{% include 'folder_component.html' %}
+</html>
