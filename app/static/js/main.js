@@ -1,10 +1,11 @@
+// Outras funções permanecem inalteradas
 document.getElementById('notification-form')?.addEventListener('submit', function (event) {
     event.preventDefault();
-    showLoadingDialog();  // Exibe o loading
+    showLoadingDialog();
 
     const formData = new FormData(this);
 
-    // Captura o valor do checkbox para enviar ao servidor
+    // Captura o valor do checkbox
     formData.append('all_users', document.getElementById('check_all_users').checked);
     formData.append('launch_url', document.getElementById('launch_url').value);
 
@@ -31,13 +32,20 @@ document.getElementById('notification-form')?.addEventListener('submit', functio
 });
 
 // Função para ocultar o campo external_id quando o checkbox está marcado
-document.getElementById('check_all_users').addEventListener('change', toggleExternalIdVisibility);
+document.addEventListener('DOMContentLoaded', () => {
+    const checkAllUsers = document.getElementById('check_all_users');
+    if (checkAllUsers) {
+        checkAllUsers.addEventListener('change', toggleExternalIdVisibility);
+    }
+});
+
 
 function toggleExternalIdVisibility() {
     const externalIdField = document.getElementById('external_id');
     const externalIdLabel = document.getElementById('external_id_label');
-    externalIdLabel.style.display = document.getElementById('check_all_users').checked ? 'none' : 'block';
-    externalIdField.style.display = document.getElementById('check_all_users').checked ? 'none' : 'block';
+    const isChecked = document.getElementById('check_all_users').checked;
+    externalIdField.style.display = isChecked ? 'none' : 'block';
+    externalIdLabel.style.display = isChecked ? 'none' : 'block';
 }
 
 
@@ -48,25 +56,57 @@ function updateConsoleLog(message) {
     consoleLogElement.scrollTop = consoleLogElement.scrollHeight;
 }
 
-function clearField(fieldId) {
-    document.getElementById(fieldId).value = '';
-    document.getElementById('check_all_users').checked = false;
-    toggleExternalIdVisibility();
+function clearFields() {
+    const fields = ['app_id', 'api_key', 'message_pt', 'message_en', 'heading_pt', 'heading_en', 'external_id', 'small_icon'];
+    console.log('click clearFields................')
+    // Limpar os campos se eles existirem no DOM
+    fields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (field) {
+            field.value = ''; // Limpa o valor do input
+        }
+    });
 
+    // Desmarcar o checkbox, se ele existir
+    const checkAllUsers = document.getElementById('check_all_users');
+    if (checkAllUsers) {
+        checkAllUsers.checked = false; // Desmarca o checkbox
+        toggleExternalIdVisibility(); // Atualiza a visibilidade do campo "external_id"
+    }
 }
+
 
 function clearAll() {
-    document.getElementById('check_all_users').checked = false;
-    const fields = ['app_id', 'api_key', 'message_pt', 'message_en', 'heading_pt', 'heading_en', 'external_id', 'small_icon'];
-    fields.forEach(clearField);
+    // Limpa todos os campos de input e checkboxes
+    console.log('click clearAll................')
+    clearFields();
+
+    // Limpa o console log
+    const consoleLogElement = document.getElementById('console-log');
+    if (consoleLogElement) {
+        consoleLogElement.textContent = ''; // Reseta o conteúdo do log
+    }
+
+    // Remove os cards de mensagens
+    const messagesContainer = document.getElementById('messages-container');
+    if (messagesContainer) {
+        messagesContainer.innerHTML = ''; // Remove todos os elementos dentro do container
+    }
+
+    // Esconde o cabeçalho de lista de mensagens, se existir
+    const listHeader = document.getElementById('list-header');
+    if (listHeader) {
+        listHeader.style.display = 'none'; // Esconde o cabeçalho
+    }
 }
 
-function clearSession() {
-    fetch('/clear_session', { method: 'POST' })
+
+function clearSession(method) {
+
+    fetch('/clear_session', { method: method })
         .then(response => {
             if (response.ok) {
                 alert('Session data cleared!');
-                clearAll();
             } else {
                 alert('Failed to clear session data.');
             }
@@ -142,6 +182,4 @@ function showLoadingDialog() {
 // Função para esconder o diálogo de carregamento
 function hideLoadingDialog() {
     document.getElementById("loading-dialog").style.display = "none";
-}
-
-
+} 

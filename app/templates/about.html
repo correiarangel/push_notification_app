@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_about.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+</head>
+
+<body class="dracula-theme">
+    {% include 'navbar_component.html' %}
+
+    <div class="container">
+        <!-- Header com a foto -->
+        <div class="header">
+            <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Profile Photo">
+            <h1>Marcos Fabiano Correia Rangel</h1>
+            <p>The only way to achieve the impossible is to believe it’s possible.</p>
+        </div>
+
+        <!-- Seções organizadas -->
+        <div class="about-sections">
+            <div class="form-panel">
+                <h2>About Sistym</h2>
+                <h3>Push Notification App</h3>
+                <ul>
+                    <li><strong>Version:</strong> 1.0.0</li>
+                    <li><strong>Developed:</strong> with the Flask framework</li>
+                    <li><strong>Screen support:</strong> Desktop and Tablets via Web Browser</li>
+                </ul>
+                <p>
+                    Push Notification App is an application designed to create push notifications using the OneSignal
+                    SDK.
+                    It was developed as part of the final project for the CC50 course at Harvard EAD, completed in 2024
+                    and promoted by Grupo Estudar in Brazil. The application was built with Flask/Python, with the aim
+                    of
+                    simplifying the testing process when implementing notifications, making life easier for developers.
+                </p>
+            </div>
+
+            <div class="form-panel">
+                <h2>About Developer</h2>
+                <h3>Marcos Fabiano Correia Rangel</h3>
+                <p>Flutter Developer passionate about nature, music, felines, technology, and astronomy. With 5 years of
+                    experience in mobile development, 4 of which focused on Flutter, I have developed expertise in
+                    building Android and iOS applications using Dart.</p>
+            </div>
+
+            <div class="form-panel">
+                <h3>Academic Background:</h3>
+                <ul>
+                    <li>Postgraduate in Mobile App Development, IFSP. Completed: 2020.</li>
+                    <li>Graduation in IT Management, Estácio Sá. Completed: 2016.</li>
+                    <li>Technical: IT Technician, ETEC, Centro Paula Sousa. Completed: 2010.</li>
+                </ul>
+            </div>
+            <div class="form-panel">
+                <h3>Social Media</h3>
+                <div class="social-links">
+                    <p>
+                        <i class="fab fa-linkedin" style="color: #0e76a8;"></i> 
+                        <a href="https://www.linkedin.com/in/marcos-fabiano-correia-rangel/" target="_blank">LinkedIn Profile</a> – Discover Rangel's professional career and achievements on his LinkedIn profile.
+                    </p>
+                    <p>
+                        <i class="fab fa-github" style="color: #f8f8f2;"></i> 
+                        <a href="https://github.com/correiarangel" target="_blank">GitHub Profile</a> – Explore Rangel's code repositories and contributions to various projects on GitHub.
+                    </p>
+                    <p>
+                        <i class="fab fa-medium" style="color: #02b875;"></i> 
+                        <a href="https://medium.com/@okcomputer.use.linux" target="_blank">Medium Profile</a> – Read insightful articles written by Rangel on Medium.
+                    </p>
+                    <p>
+                        <i class="fab fa-facebook" style="color: #1877f2;"></i> 
+                        <a href="https://www.facebook.com/correiarangel" target="_blank">Facebook</a> – Get a glimpse into Rangel's personal life and interests on Facebook.
+                    </p>
+                </div>
+            </div>
+            
+            
+            <button onclick="window.location.href='/'" class="btn-dracul"
+                style="position: fixed; bottom: 20px; right: 20px;">
+                Back
+            </button>
+        </div>
+
+</body>
+{% include 'folder_component.html' %}
+
+</html>

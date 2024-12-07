@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap">
 </head>
+
 <body class="dracula-theme">
     {% include 'navbar_component.html' %}
 
     <div class="container">
-        <h2>Send Push Notifications -></h2>
+        <h2>Send Push Notifications</h2>
 
         <div class="form-panel">
             <form id="notification-form" action="/send_notification" method="POST">
@@ -24,22 +26,26 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="heading_pt">Title (PT):</label>
-                        <input type="text" id="heading_pt" name="heading_pt" placeholder="Enter your title pt br..." required>
+                        <input type="text" id="heading_pt" name="heading_pt" placeholder="Enter your title pt br..."
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="message_pt">Message (PT):</label>
-                        <input type="text" id="message_pt" name="message_pt" placeholder="Enter your message pt br..." required>
+                        <input type="text" id="message_pt" name="message_pt" placeholder="Enter your message pt br..."
+                            required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="heading_en">Title (EN):</label>
-                        <input type="text" id="heading_en" name="heading_en" placeholder="Enter your title en ..." required>
+                        <input type="text" id="heading_en" name="heading_en" placeholder="Enter your title en ..."
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="message_en">Message (EN):</label>
-                        <input type="text" id="message_en" name="message_en" placeholder="Enter your message en..." required>
+                        <input type="text" id="message_en" name="message_en" placeholder="Enter your message en..."
+                            required>
                     </div>
                 </div>
 
@@ -54,30 +60,20 @@
 
                 <label for="launch_url">Launch URL (optional):</label>
                 <input type="text" id="launch_url" name="launch_url" placeholder="Enter the Launch URL...">
-                
+
                 <label for="small_icon">Small Icon URL (optional):</label>
                 <input type="text" id="small_icon" name="small_icon" placeholder="Enter your small icon if you want...">
 
                 <div class="button-group">
                     <button type="submit" class="btn-green">Send Notification</button>
                     <button type="button" class="btn-orange" onclick="clearAll()">Clear All</button>
-                    <form action="/clear_session" method="POST" style="display: inline;">
-                        <button type="submit" class="btn-red">Clear Session Data</button>
-                    </form>
+                    <button type="button" class="btn-red" onclick="clearSession('POST')">Clear Session Data</button>
+
                 </div>
             </form>
 
-            {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            <ul>
-                {% for category, message in messages %}
-                <li class="{{ category }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% endwith %}
         </div>
-        
+
         <h3>Console Logs</h3>
         <div class="form-panel">
             <div class="log-container">
@@ -87,14 +83,17 @@
             <button type="button" class="btn-green" onclick="downloadLog()">Download File Logs</button>
         </div>
 
-        <button onclick="window.location.href='/'" class="btn-dracul" style="position: fixed; bottom: 20px; right: 20px;">
+        <button onclick="window.location.href='/'" class="btn-dracul"
+            style="position: fixed; bottom: 20px; right: 20px;">
             Back
         </button>
     </div>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
+
 </body>
 
 {% include 'progress_dailog_component.html' %}
 {% include 'folder_component.html' %}
+
 </html>
