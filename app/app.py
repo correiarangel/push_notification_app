@@ -23,5 +23,5 @@ def create_app():
 if __name__ == '__main__':
     # Cria e executa o aplicativo em modo debug
     app = create_app()
-    app.run(debug=True)
- 
+    app.run(host='0.0.0.0' ,debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
