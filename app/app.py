@@ -1,7 +1,5 @@
 from routes import initialize_routes
-#from .routes import initialize_routes
 from flask import Flask
-
 from dotenv import load_dotenv
 import os
 
@@ -23,5 +21,4 @@ def create_app():
 if __name__ == '__main__':
     # Cria e executa o aplicativo em modo debug
     app = create_app()
-    app.run(host='0.0.0.0' ,debug=True)
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
