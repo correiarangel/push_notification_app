@@ -29,4 +29,3 @@ ENV PORT=8080
 
 # Comando para iniciar o servidor
 CMD ["python", "app.py"]
-
