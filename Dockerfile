@@ -1,34 +1,43 @@
-# Use uma imagem base Python
+# Use a imagem base do Python
 FROM python:3.10-slim
 
-# Defina o diretório de trabalho
-WORKDIR /app
-
-# Instale dependências do sistema necessárias para compilar pacotes Python
+# Instalar dependências do sistema, incluindo pacotes adicionais para compilar wheels
 RUN apt-get update && apt-get install -y \
-    build-essential \
+    python3-dev \
     libssl-dev \
     libffi-dev \
-    python3-dev \
-    libpq-dev \
-    libgpg-error-dev \
+    zlib1g-dev \
+    build-essential \
     gettext \
+    pkg-config \
+    libcairo2-dev \
+    libpango1.0-dev \
+    libglib2.0-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copie os arquivos do projeto para o contêiner
-COPY . .
+# Definir diretório de trabalho
+WORKDIR /app
 
-# Atualizar pip para a versão mais recente
+# Copiar o requirements.txt para dentro do contêiner
+COPY requirements.txt .
+
+# Atualizar pip
 RUN pip install --upgrade pip
 
-# Instale as dependências do Python
-RUN pip install --no-cache-dir -r requirements.txt
+# Remover versão exata de python-debian
+RUN sed -i '/python-debian==0.1.43/d' requirements.txt
 
-# Exponha a porta (Railway usará a variável de ambiente PORT automaticamente)
+# Instalar dependências manualmente em etapas
+RUN pip install --no-cache-dir appdirs==1.4.4
+RUN pip install --no-cache-dir attrs==21.2.0
+RUN pip install --no-cache-dir bcrypt==3.2.0
+RUN pip install --no-cache-dir beautifulsoup4==4.10.0
+RUN pip install --no-cache-dir beniget==0.4.1
+# Continuar com os outros pacotes...
+# Adicione as outras dependências uma a uma
+
+# Expor a porta
 EXPOSE 8080
 
-# Define a variável de ambiente da porta
-ENV PORT=8080
-
-# Comando para iniciar o servidor
-CMD ["python", "app.py"]
+# Comando para rodar a aplicação
+CMD ["python3", "app.py"]
