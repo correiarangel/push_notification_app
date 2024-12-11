@@ -42,12 +42,11 @@ RUN pip install --no-cache-dir beniget==0.4.1
 # Continue instalando os pacotes manualmente
 
 # Copiar o diretório 'app' para dentro do contêiner (Certifique-se de que o diretório app/ está no mesmo nível do Dockerfile)
-COPY app/ ./app/
+COPY app/ ./app
 
 # Expor a porta
 EXPOSE 8080
 
 # Comando para rodar a aplicação
-CMD ["python3", "app/app.py"]
-
+CMD ["python3", "app.py"]
 
