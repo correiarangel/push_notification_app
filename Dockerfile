@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     libffi-dev \
     python3-dev \
     libpq-dev \
-    libgpg-error-dev \  
+    libgpg-error-dev \
     gettext \
     && rm -rf /var/lib/apt/lists/*
 
@@ -27,8 +27,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Exponha a porta (Railway usará a variável de ambiente PORT automaticamente)
 EXPOSE 8080
 
+# Define a variável de ambiente da porta
 ENV PORT=8080
 
 # Comando para iniciar o servidor
 CMD ["python", "app.py"]
-
