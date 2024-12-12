@@ -1,52 +1,42 @@
-# Use a imagem base do Python
-FROM python:3.10-slim
+# Use uma imagem base slim do Python
+FROM python:3.10-slim-buster
 
-# Instalar dependências do sistema, incluindo pacotes adicionais para compilar wheels
+# Instalar dependências do sistema necessárias para pacotes Python
 RUN apt-get update && apt-get install -y \
-    python3-dev \
+    build-essential \
+    libcairo2-dev \
+    pkg-config \
     libssl-dev \
     libffi-dev \
+    python3-dev \
     zlib1g-dev \
-    build-essential \
-    gettext \
-    pkg-config \
-    libcairo2-dev \
-    libpango1.0-dev \
-    libglib2.0-dev \
-    libxml2-dev \
-    libxslt1-dev \
     libjpeg-dev \
-    liblcms2-dev \
-    libblas-dev \
-    libatlas-base-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Definir diretório de trabalho
+# Definir o diretório de trabalho
 WORKDIR /app
 
-# Copiar o requirements.txt para dentro do contêiner
-COPY requirements.txt .
+# Copiar o arquivo requirements.txt para o contêiner
+COPY requirements.txt requirements.txt
 
-# Atualizar pip
-RUN pip install --upgrade pip
+# Atualizar pip, setuptools e wheel para evitar problemas de compatibilidade
+RUN pip install --upgrade pip setuptools wheel
 
-# Remover versão exata de python-debian (se necessário)
-RUN sed -i '/python-debian==0.1.43/d' requirements.txt
+# Instalar dependências do Python
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Instalar dependências manualmente em etapas, para depuração
-RUN pip install --no-cache-dir appdirs==1.4.4
-RUN pip install --no-cache-dir attrs==21.2.0
-RUN pip install --no-cache-dir bcrypt==3.2.0
-RUN pip install --no-cache-dir beautifulsoup4==4.10.0
-RUN pip install --no-cache-dir beniget==0.4.1
-# Continue instalando os pacotes manualmente
+# Copiar o código do aplicativo
+COPY app .
 
-# Copiar o diretório 'app' para dentro do contêiner (Certifique-se de que o diretório app/ está no mesmo nível do Dockerfile)
-COPY app/ ./app/
-
-# Expor a porta
+# Expor a porta padrão (se necessário para Flask ou outro framework)
 EXPOSE 8080
 
-# Comando para rodar a aplicação
-CMD ["python3", "app/app.py"]
+# Comando padrão ao iniciar o contêiner
+CMD ["bash"]
 
+
+# Comando para rodar a aplicação
+#CMD ["python", "app.py"]
+
+# Command to run the application
+#CMD ["/env/bin/python", "app.py"]
