@@ -35,6 +35,7 @@ EXPOSE 8080
 #CMD ["gunicorn", "-b", "0.0.0.0:$PORT", "app:app"]
 CMD ["sh", "-c", "exec gunicorn -b 0.0.0.0:$PORT app:app"]
 
+
 # Comando padrão ao iniciar o contêiner
 #CMD ["bash"]
 

@@ -17,13 +17,11 @@ def create_app():
     
     return app
 
+# Atribuindo a aplicação à variável 'app'
+app = create_app()
+
 if __name__ == '__main__':
-    # Cria e executa o aplicativo em modo debug
-    app = create_app()
-    
-    # Obtém a porta do ambiente ou usa a padrão (8080)
-    port = int(os.environ.get('PORT', 8080))
-    
-    # Inicia o servidor Flask na porta configurada
-    app.run(host='0.0.0.0', port=port, debug=True)
+    # Iniciar o servidor Flask em modo debug
+    app.run(host='0.0.0.0', port=8080, debug=True)
+
 
