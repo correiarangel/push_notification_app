@@ -31,13 +31,12 @@ COPY app .
 # Expor a porta padrão (se necessário para Flask ou outro framework)
 EXPOSE 8080
 
+# Comando padrão ao iniciar o contêiner
+CMD ["bash"]
+
 # Comando padrão ao iniciar o contêiner usando Gunicorn
 #CMD ["gunicorn", "-b", "0.0.0.0:$PORT", "app:app"]
-CMD ["sh", "-c", "exec gunicorn -b 0.0.0.0:$PORT app:app"]
-
-
-# Comando padrão ao iniciar o contêiner
-#CMD ["bash"]
+#CMD ["sh", "-c", "exec gunicorn -b 0.0.0.0:$PORT app:app"]
 
 
 # Comando para rodar a aplicação
