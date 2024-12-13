@@ -26,6 +26,7 @@ if __name__ == '__main__':
     port = int(os.getenv("PORT", 8090))
     app.run(host='0.0.0.0', port=port, debug=True)
 
+timeout =int(os.environ.get("GUNICORN_TIMEOUT", 30))
     
     # Obtém a porta do ambiente ou usa a padrão (8080)
   # port = int(os.environ.get('PORT', 8080))
