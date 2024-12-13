@@ -32,7 +32,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app .
 
 # Expor a porta padrão (se necessário para Flask ou outro framework)
-EXPOSE 8080
+EXPOSE 8090
 
 # Comando padrão ao iniciar o contêiner
 CMD ["bash"]
