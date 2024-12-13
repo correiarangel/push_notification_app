@@ -25,6 +25,8 @@ RUN pip install --upgrade pip setuptools wheel
 # Instalar dependências do Python
 RUN pip install --no-cache-dir -r requirements.txt
 
+COPY .env .
+
 # Copiar o código do aplicativo
 COPY app .
 
