@@ -40,7 +40,8 @@ EXPOSE 8080
 
 
 # Comando padrão ao iniciar o contêiner usando Gunicorn
-CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
+
 #CMD ["sh", "-c", "exec gunicorn -b 0.0.0.0:$PORT app:app"]
 
 

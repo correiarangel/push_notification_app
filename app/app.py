@@ -23,11 +23,13 @@ app = create_app()
 
 # Apenas para desenvolvimento, o Gunicorn gerenciará a execução em produção.
 try:
+    logging.basicConfig(level=logging.DEBUG)
     app = create_app()
     if __name__ == '__main__':
         app.run(host='0.0.0.0', port=8080, debug=True)
 except Exception as e:
     logging.error(f"Failed to start the app: {str(e)}")
+    
     raise
     
     # Obtém a porta do ambiente ou usa a padrão (8080)
