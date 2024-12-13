@@ -1,7 +1,7 @@
 import os
 import multiprocessing
 
-bind = "0.0.0.0:" + str(os.environ.get("PORT", 8090))
-workers = multiprocessing.cpu_count() * 2 + 1 #numero de workers recomendados
-timeout = int(os.environ.get("GUNICORN_TIMEOUT", 60)) #tempo limite configuravel via variavel de ambiente no Railway
-worker_class = "gthread" #para economizar memoria
+bind = "0.0.0.0:8080" # Porta fixa dentro do contêiner
+workers = multiprocessing.cpu_count() * 2 + 1
+timeout = int(os.environ.get("GUNICORN_TIMEOUT", 60))
+worker_class = "gthread"

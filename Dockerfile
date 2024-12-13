@@ -37,8 +37,8 @@ COPY app/gunicorn.conf.py /app/gunicorn.conf.py
 EXPOSE 8090
 
 # Comando padrão ao iniciar o contêiner
-CMD ["bash"]
-
+#CMD ["bash"]
+CMD ["gunicorn", "--config", "gunicorn.conf.py", "app:app"]
 
 
 # Comando padrão ao iniciar o contêiner usando Gunicorn

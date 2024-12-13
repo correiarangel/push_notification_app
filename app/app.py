@@ -15,16 +15,16 @@ def create_app():
     app = Flask(__name__, static_folder="static")
     app.secret_key = os.getenv("FLASK_SECRET_KEY")
     initialize_routes(app)
-    logging.info("App created successfully!")
+    logging.info("App created successfully ;)")
     return app
 
 # Instância única para uso pelo Gunicorn
 app = create_app()
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
     # Execução em modo de desenvolvimento
-    port = int(os.getenv("PORT", 8090))
-    app.run(host='0.0.0.0', port=port, debug=True)
+#    port = int(os.getenv("PORT", 8090))
+#   app.run(host='0.0.0.0', port=port, debug=True)
 
     
     # Obtém a porta do ambiente ou usa a padrão (8080)
