@@ -42,8 +42,7 @@ EXPOSE 8080
 # Comando padrão ao iniciar o contêiner usando Gunicorn
 #CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
 
-CMD ["sh", "-c", "gunicorn ","--bind", "0.0.0.0:8080 app:app"]
-
+CMD ["sh", "-c", "gunicorn", "--bind", "0.0.0.0:8080 app:app"]
 
 # Comando para rodar a aplicação
 #CMD ["python", "app.py"]
