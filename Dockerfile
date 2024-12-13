@@ -31,6 +31,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar o código do aplicativo
 COPY app .
 
+COPY app/gunicorn.conf.py /app/gunicorn.conf.py
+
 # Expor a porta padrão (se necessário para Flask ou outro framework)
 EXPOSE 8090
 
