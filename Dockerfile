@@ -31,14 +31,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar o código do aplicativo
 COPY app .
 
-COPY app/gunicorn.conf.py /app/gunicorn.conf.py
+#COPY app/gunicorn.conf.py /app/gunicorn.conf.py
 
 # Expor a porta padrão (se necessário para Flask ou outro framework)
 EXPOSE 8090
 
 # Comando padrão ao iniciar o contêiner
 #CMD ["bash"]
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "2", "--worker-class", "gthread", "--max-requests", "5000", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
 
 
 # Comando padrão ao iniciar o contêiner usando Gunicorn
