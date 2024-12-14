@@ -1,3 +1,7 @@
+# Report final 
+
+Use FireFox: (Read)[https://github.com/correiarangel/push_notification_app/blob/main/Artigo-Ferramenta-de-Teste-para-Notifica%C3%A7%C3%B5es-Push.pdf]
+
 # Push Notification App (`R Notifications`)
 
 **R Notifications** is a web application designed to create and test push notifications using the **OneSignal SDK**. It was developed as the final project for Harvard's **CS50: Introduction to Computer Science** course, promoted in Brazil by **Grupo Estudar**. This project was built using the **Flask framework** with **Python**, offering a simple and effective way for developers to test push notifications across different platforms. The application supports **desktop and tablet** environments via web browsers.
