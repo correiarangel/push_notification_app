@@ -24,7 +24,9 @@ app = create_app()
 if __name__ == '__main__':
     # Execução em modo de desenvolvimento
     port = int(os.getenv("PORT", 8080))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(port=port, debug=True)
+    logging.info("Run:...App...////////////////////////")
+   
 
     
     # Obtém a porta do ambiente ou usa a padrão (8080)
