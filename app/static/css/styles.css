@@ -46,9 +46,11 @@ a:hover {
 .main-panel,
 .message-item,
 .link-panel {
+    
     background-color: #44475a;
     color: #f8f8f2;
-    padding: 20px;
+    padding: 25px;
+    padding-right: 40px;
     border-radius: 8px;
     margin-bottom: 20px;
 }
@@ -59,7 +61,7 @@ a:hover {
 }
 
 .main-panel {
-    max-width: 75%; /* Largura máxima do painel principal */
+    max-width: 85%; /* Largura máxima do painel principal */
     margin: 20px 20px 20px 0; /* Margens para os lados */
 }
 

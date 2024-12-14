@@ -18,7 +18,8 @@
     <header class="header">
         <img src="{{ url_for('static', filename='images/heard.jpeg') }}" alt="Header Image" class="header-image">
         <div class="header-text">
-            Welcome to Notifications push notification system
+            Welcome to the Push Notifications System
+            Test your OneSignal implementation easily
             <div class="btn-neader">
                 <button onclick="window.location.href='/form'"> Send Notification </button>
                 <button onclick="window.location.href='/messages'">All Messages Send</button>
@@ -34,23 +35,20 @@
         <div class="main-panel">
             <h2>Principal Content</h2>
             <p>
-                Taking Harvard’s CS50: Introduction to Computer Science course was an extremely privileged experience,
-                as well as being fun and exciting. The quality of the teaching and the teachers is truly exceptional.
+                The Push Notification App is a practical tool to facilitate initial testing with OneSignal and
+                also for production use when sending push notifications.
             </p>
+            <h3> Benefits:</h3>
             <p>
-                Although Brazilian teachers are also brilliant, David Malan's teaching method stands out. His examples
-                and illustrations are extremely effective in helping students learn the content. I would like to express
-                my gratitude to the Estudar group, which manages and makes this platform available for the course in
-                Brazil.
+                Initial Testing and Production: Allows you to easily create and trigger custom notifications, simply by
+                entering the App ID and API Key provided by OneSignal.
+                Cache Clearing: We recommend clearing the cache and session data when exiting, especially in production
+                environments, to avoid security issues.
+                Attention in Production: Once OneSignal is active for your end users, use the tool with caution to avoid
+                testing in real environments.
+            <p>
+                ⚠️ Important: Since it is hosted on a free service, the tool may be unstable or temporarily offline.
             </p>
-            <p>
-                I would also like to thank the professors and everyone involved in this incredible opportunity to enter
-                this
-                fascinating world of software development. The R Notifications system was developed as a final project
-                for the
-                course. If you are interested in the subject and want to explore a career as a developer, check out the
-                links
-                in the panel on the right for available courses.
             </p>
 
 

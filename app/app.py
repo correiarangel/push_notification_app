@@ -21,17 +21,12 @@ def create_app():
 # Instância única para uso pelo Gunicorn
 app = create_app()
 
-if __name__ == '__main__':
-    # Execução em modo de desenvolvimento
-   # port = int(os.getenv("PORT", 8080))
-    app.run()
-    logging.info("Run: //////////// ")
+#if __name__ == '__main__':
+#    # Execução em modo de desenvolvimento
+#    port = int(os.getenv("PORT", 8080))
+#    app.run(host='0.0.0.0', port=port, debug=True)
+#    logging.info("Run:////////////////////////")
    
 
-    
-    # Obtém a porta do ambiente ou usa a padrão (8080)
-  # port = int(os.environ.get('PORT', 8080))
-    
-    # Inicia o servidor Flask na porta configurada
-    #app.run(host='0.0.0.0', port=port, debug=True)
+
 
