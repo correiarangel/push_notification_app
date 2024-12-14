@@ -2,6 +2,8 @@
 
 **R Notifications** is a web application designed to create and test push notifications using the **OneSignal SDK**. It was developed as the final project for Harvard's **CS50: Introduction to Computer Science** course, promoted in Brazil by **Grupo Estudar**. This project was built using the **Flask framework** with **Python**, offering a simple and effective way for developers to test push notifications across different platforms. The application supports **desktop and tablet** environments via web browsers.
 
+(Aplication Run...)[pushnotificationapp-production.up.railway.app]
+
 ## Version
 
 - **1.0.0**
@@ -48,7 +50,6 @@ flask run
 # http://127.0.0.1:5000
 ```
 
-
 ### Testing Push Notifications
 
 Open the web application in a browser. Enter the necessary details for your push notification (e.g., title, message, target audience) and test the notification by sending it directly through the application.
@@ -74,3 +75,5 @@ Open the web application in a browser. Enter the necessary details for your push
 ## Acknowledgments
 
 This project is a result of the **CS50: Introduction to Computer Science** course by Harvard University, facilitated in Brazil by  **Grupo Estudar** . Special thanks to the instructors and peers for the incredible learning journey. Feedback, suggestions, and constructive criticism are highly appreciated and can be shared through the contact channels listed above.
+
+ (Aplication Run...)[pushnotificationapp-production.up.railway.app]

@@ -15,11 +15,13 @@ def create_app():
     app = Flask(__name__, static_folder="static")
     app.secret_key = os.getenv("FLASK_SECRET_KEY")
     initialize_routes(app)
-    logging.info("App created successfully!")
+    logging.info("App created successfully........")
     return app
 
 # Instância única para uso pelo Gunicorn
 app = create_app()
+
+# DESCOMETE P/ HAMBIENTE DEV
 
 #if __name__ == '__main__':
 #    # Execução em modo de desenvolvimento
