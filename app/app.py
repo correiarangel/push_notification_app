@@ -25,7 +25,7 @@ if __name__ == '__main__':
     # Execução em modo de desenvolvimento
     port = int(os.getenv("PORT", 8080))
     app.run(port=port, debug=True)
-    logging.info("Run:...App...////////////////////////")
+    logging.info("Run:...App...////////////////////////>")
    
 
     

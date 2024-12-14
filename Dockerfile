@@ -38,7 +38,7 @@ EXPOSE 8090
 
 # Comando padrão ao iniciar o contêiner
 #CMD ["bash"]
-CMD ["gunicorn", "--config", "gunicorn.conf.py", "app:app"]
+CMD ["app:app"]
 
 
 # Comando padrão ao iniciar o contêiner usando Gunicorn
