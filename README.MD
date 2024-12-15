@@ -1,4 +1,4 @@
-# Report final 
+# Report final
 
 Use FireFox: (Read)[https://github.com/correiarangel/push_notification_app/blob/main/Artigo-Ferramenta-de-Teste-para-Notifica%C3%A7%C3%B5es-Push.pdf]
 
@@ -74,7 +74,6 @@ Open the web application in a browser. Enter the necessary details for your push
 * **LinkedIn** : [LinkedIn Profile](#)
 * **GitHub** : [GitHub Profile](#)
 * **Medium** : [Medium Profile](#)
-* **Facebook** : [Facebook Profile](#)
 
 ## Acknowledgments
 
