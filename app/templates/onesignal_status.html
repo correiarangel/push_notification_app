@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status OneSignal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_onesignal.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body class="dracula-theme">
+    <!-- Incluir a Navbar -->
+    {% include 'navbar_component.html' %}
+    <!-- Webview usando iframe -->
+
+    <iframe src="https://status.onesignal.com/#" title="OneSignal Status"></iframe>
+    <button onclick="window.location.href='/'" class="btn-dracul" style="position: fixed; bottom: 20px; right: 20px;">
+        Back
+    </button>
+</body>
+{% include 'folder_component.html' %}
+
+</html>

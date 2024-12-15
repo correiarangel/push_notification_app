@@ -18,3 +18,7 @@ def about():
 @page_bp.route('/messages', methods=['GET'])
 def messages():
    return render_template('messages.html')
+
+@page_bp.route('/onesignal-status')
+def onesignal_status():
+    return render_template('onesignal_status.html')
